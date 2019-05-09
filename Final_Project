@@ -1,0 +1,48 @@
+
+def D4_VanderMonde(x):
+    """Computes vandermonde matrix of vector x.
+
+      Takes in a vector x and computes the vandormonde matrix
+      .
+
+      Args:
+          x : A list of real numbers representing a vector
+
+
+
+
+      Returns:
+              Vandermonde matrix of x.
+      """
+    x = [1, 2, 3, 4]
+
+    result = []
+    for exp in range(5):
+        temp = []
+        for element in range(len(x)):
+            temp.append (x[element] ** exp)
+        result.append(temp)
+    return result
+
+
+def transpose(A):
+    result = []
+    for i in range(len(A)):
+        temp = []
+        for element in range(len(A[0])):
+            temp.append(A[element][i])
+        result.append(temp)
+
+    return result
+
+def conjucate(z):
+    result = z.real
+    result = result - (z.imag)*1j
+    return result
+
+def conjucateTranspose(A):
+    result = transpose(A)
+    for i in range(len(A)):
+        for element in range(len(A[0])):
+            result[i][element] = conjucate(result[i][element])
+    return result
